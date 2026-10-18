@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "sdfs",
+    "title": "sdfs",
+    "excerpt": "fsdf",
+    "content": "sdfsf",
+    "coverImage": "/fernando.jpg"
+  },
+  {
+    "slug": "the-samurai-1791559391014",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best",
+    "coverImage": "/fernando.jpg"
+  },
+  {
+    "slug": "the-samurai-1791558699271",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best",
+    "coverImage": "/fernando.jpg"
+  },
+  {
+    "slug": "the-samurai-1791558564409",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best",
+    "coverImage": null
+  },
+  {
+    "slug": "the-samurai-1791557775935",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best",
+    "coverImage": "https://images.unsplash.com/photo-1742744652734-d5ec6598b5da?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "slug": "the-samurai-1791557527318",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best",
+    "coverImage": null
+  },
+  {
+    "slug": "the-samurai-1791557353574",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best",
+    "coverImage": null
+  },
+  {
+    "slug": "the-samurai",
+    "title": "The Samurai",
+    "excerpt": "Fernando Alonso",
+    "content": "Fernando is the best of all time",
+    "coverImage": null
+  },
+  {
+    "slug": "dfngd",
+    "title": "dfngd",
+    "excerpt": "cvbncvbncv",
+    "content": "vbncbncbvcvbnncvbn"
+  },
+  {
+    "slug": "sfg",
+    "title": "sfg",
+    "excerpt": "zxcvz",
+    "content": "zxcvzcv"
+  },
+  {
+    "slug": "server-actions-1791362632878",
+    "title": "server-actions",
+    "excerpt": "Server Actions",
+    "content": "sdfbsdb"
+  },
+  {
+    "slug": "server-actions",
+    "title": "server-actions",
+    "excerpt": "Server Actions",
+    "content": "I learned How can I create forms in Next.js"
+  },
+  {
+    "slug": "hello-nextjs",
+    "title": "Hello Next.js",
+    "excerpt": "My first steps with Next.js.",
+    "content": "Today I started learning Next.js. File-based routing is great!"
+  },
+  {
+    "slug": "server-components",
+    "title": "Understanding Server Components",
+    "excerpt": "What makes them different from regular React components.",
+    "content": "Server Components run only on the server and send zero JS to the browser."
+  },
+  {
+    "slug": "tailwind-tips",
+    "title": "Tailwind Tips",
+    "excerpt": "A few tricks I use every day.",
+    "content": "Utility classes make styling fast once you get used to them."
+  }
+]
