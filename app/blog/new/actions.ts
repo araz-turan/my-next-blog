@@ -3,8 +3,11 @@
 import {redirect} from 'next/navigation';
 import {revalidatePath} from 'next/cache';
 import {addPost} from '@/lib/posts';
+import {isAdmin} from '@/lib/session';
 
 export async function createPost(formData: FormData) {
+  if (!(await isAdmin())) redirect('/login');
+
   const title = String(formData.get('title') ?? '').trim();
   const excerpt = String(formData.get('excerpt') ?? '').trim();
   const content = String(formData.get('content') ?? '').trim();
