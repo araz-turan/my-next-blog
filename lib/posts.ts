@@ -65,3 +65,21 @@ export async function addPost(data: Post) {
   const slug = exists ? `${data.slug}-${Date.now()}` : data.slug;
   return prisma.post.create({data: {...data, slug}});
 }
+
+export function slugify(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export async function updatePost(
+  slug: string,
+  data: { title: string; excerpt: string; content: string; coverImage: string | null }
+) {
+  return prisma.post.update({ where: { slug }, data });
+}
+
+export async function deletePost(slug: string) {
+  return prisma.post.deleteMany({ where: { slug } });
+}

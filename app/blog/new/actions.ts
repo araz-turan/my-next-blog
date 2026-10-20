@@ -2,30 +2,38 @@
 
 import {redirect} from 'next/navigation';
 import {revalidatePath} from 'next/cache';
-import {addPost} from '@/lib/posts';
+import {addPost, slugify} from '@/lib/posts';
 import {isAdmin} from '@/lib/session';
+import {validatePost, type FormState} from '@/lib/validation';
 
-export async function createPost(formData: FormData) {
+export async function createPost(
+  _prev: FormState | undefined,
+  formData: FormData,
+): Promise<FormState> {
   if (!(await isAdmin())) redirect('/login');
 
-  const title = String(formData.get('title') ?? '').trim();
-  const excerpt = String(formData.get('excerpt') ?? '').trim();
-  const content = String(formData.get('content') ?? '').trim();
-  const rawCover = String(formData.get('coverImage') ?? '').trim();
-  const coverImage =
-    rawCover.startsWith('https://images.unsplash.com/') ||
-    rawCover.startsWith('/')
-      ? rawCover
-      : null;
+  const result = validatePost(formData);
+  if (!result.ok) return result.state;
 
-  const slug = title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
+  const {title, excerpt, content, coverImage} = result.data;
 
-  if (!title || !content || !slug) return;
+  const slug = slugify(title);
+  if (!slug) {
+    return {
+      errors: {
+        title: 'Title must contain at least one letter or number (a-z, 0-9)',
+      },
+      values: result.data,
+    };
+  }
 
-  const post = await addPost({slug, title, excerpt, content, coverImage});
+  const post = await addPost({
+    slug,
+    title,
+    excerpt,
+    content,
+    coverImage: coverImage || null,
+  });
 
   revalidatePath('/blog');
   redirect(`/blog/${post.slug}`);

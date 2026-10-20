@@ -3,6 +3,10 @@ import {getPostBySlug} from '@/lib/posts';
 import LikeButton from '@/components/LikeButton';
 import DislikeButton from '@/components/DislikeButton';
 import Image from 'next/image';
+import Link from 'next/link';
+import DeleteButton from '@/components/DeleteButton';
+import {isAdmin} from '@/lib/session';
+import {removePost} from './actions';
 
 export default async function PostPage({
   params,
@@ -16,9 +20,24 @@ export default async function PostPage({
     notFound();
   }
 
+  const admin = await isAdmin();
+
   return (
     <main className='max-w-2xl mx-auto p-8'>
       <h1 className='text-4xl font-bold'>{post.title}</h1>
+      {admin && (
+        <div className='mt-4 flex items-center gap-3'>
+          <Link
+            href={`/blog/${post.slug}/edit`}
+            className='rounded border px-3 py-1 hover:bg-gray-100'
+          >
+            Edit
+          </Link>
+          <form action={removePost.bind(null, post.slug)}>
+            <DeleteButton />
+          </form>
+        </div>
+      )}
       <p className='mt-6 text-gray-800'>{post.content}</p>
       <LikeButton />
       <DislikeButton />
